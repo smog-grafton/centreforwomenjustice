@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-primary: #6B21A8; /* Purple */
+  --color-secondary: #EAB308; /* Gold */
+  --color-accent: #F59E0B;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-handwriting: var(--font-handwriting), cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .btn-transition {
+    @apply transition-all duration-200 ease-in-out;
+  }
+}
+
+/* News / article rich text: theme-specific prose */
+.news-prose {
+  @apply text-slate-600 leading-relaxed max-w-none;
+}
+.news-prose p {
+  @apply mb-5 text-[1.0625rem];
+}
+.news-prose p:last-child {
+  @apply mb-0;
+}
+.news-prose h2 {
+  @apply font-serif font-bold text-slate-900 text-2xl mt-12 mb-4;
+}
+.news-prose h3 {
+  @apply font-serif font-bold text-slate-900 text-xl mt-8 mb-3;
+}
+.news-prose h4 {
+  @apply font-serif font-bold text-slate-900 text-lg mt-6 mb-2;
+}
+.news-prose blockquote {
+  @apply border-l-4 border-primary pl-6 py-4 my-8 italic text-slate-700 font-serif text-lg bg-slate-50/80 rounded-r-xl;
+}
+.news-prose blockquote p {
+  @apply mb-0;
+}
+.news-prose ul {
+  @apply list-disc pl-6 mb-5 space-y-1;
+}
+.news-prose ol {
+  @apply list-decimal pl-6 mb-5 space-y-1;
+}
+.news-prose li {
+  @apply text-slate-600;
+}
+.news-prose a {
+  @apply text-primary underline underline-offset-2 hover:text-primary/80;
+}
+.news-prose strong {
+  @apply font-bold text-slate-800;
+}
