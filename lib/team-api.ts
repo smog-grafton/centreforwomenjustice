@@ -9,6 +9,13 @@ export interface TeamMemberApi {
   name: string;
   role: string | null;
   group_type: string;
+  section: {
+    id: number;
+    title: string;
+    slug: string;
+    description: string | null;
+    sort_order: number;
+  } | null;
   bio: string | null;
   image: string | null;
   sort_order: number;

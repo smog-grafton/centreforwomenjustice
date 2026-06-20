@@ -17,7 +17,6 @@ export default function ContactPage({ initialData }: ContactClientProps) {
     first_name: '',
     last_name: '',
     email: '',
-    subject: 'General Inquiry',
     message: '',
   });
   const [submitting, setSubmitting] = useState(false);
@@ -35,7 +34,7 @@ export default function ContactPage({ initialData }: ContactClientProps) {
   const helpline = initialData?.helpline;
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -52,7 +51,6 @@ export default function ContactPage({ initialData }: ContactClientProps) {
       first_name: form.first_name || undefined,
       last_name: form.last_name || undefined,
       email: form.email,
-      subject: form.subject,
       message: form.message,
     });
 
@@ -79,7 +77,6 @@ export default function ContactPage({ initialData }: ContactClientProps) {
       first_name: '',
       last_name: '',
       email: '',
-      subject: 'General Inquiry',
       message: '',
     });
   };
@@ -152,10 +149,10 @@ export default function ContactPage({ initialData }: ContactClientProps) {
                     <div>
                       <h4 className="font-bold text-slate-900">Email</h4>
                       <p className="text-slate-600 text-sm">
-                        {contact?.emails.primary ?? 'info@cwj-u.org'}
+                        {contact?.emails.primary ?? 'info@cwju.org'}
                       </p>
                       <p className="text-slate-600 text-sm">
-                        {contact?.emails.legal ?? 'legal@cwj-u.org'}
+                        {contact?.emails.legal ?? 'legal@cwju.org'}
                       </p>
                     </div>
                   </div>
@@ -247,20 +244,6 @@ export default function ContactPage({ initialData }: ContactClientProps) {
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700">Subject</label>
-                    <select
-                      name="subject"
-                      value={form.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none"
-                    >
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Partnership Proposal">Partnership Proposal</option>
-                      <option value="Media Request">Media Request</option>
-                      <option value="Volunteer Application">Volunteer Application</option>
-                    </select>
-                  </div>
-                  <div className="space-y-2">
                     <label className="text-sm font-bold text-slate-700">Message</label>
                     <textarea
                       rows={6}
@@ -321,10 +304,10 @@ export default function ContactPage({ initialData }: ContactClientProps) {
                 <h4 className="font-bold text-slate-900 mb-1">Email Address</h4>
                 <p className="text-sm text-slate-500 mb-2">Mail to</p>
                 <a
-                  href={`mailto:${helpline?.email ?? 'info@cwj-u.org'}`}
+                  href={`mailto:${helpline?.email ?? 'info@cwju.org'}`}
                   className="text-primary font-bold hover:underline"
                 >
-                  {helpline?.email ?? 'info@cwj-u.org'}
+                  {helpline?.email ?? 'info@cwju.org'}
                 </a>
               </div>
             </div>
