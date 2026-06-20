@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h3 className="text-2xl font-bold text-slate-900">1. Introduction</h3>
             <p>
-              The Centre for Women Justice Uganda (CWJ-U) is committed to protecting the privacy and confidentiality of the individuals we serve. This Privacy Policy explains how we collect, use, and safeguard your personal information.
+              The Centre for Women Justice Uganda (CWJU) is committed to protecting the privacy and confidentiality of the individuals we serve. This Privacy Policy explains how we collect, use, and safeguard your personal information.
             </p>
           </section>
 
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h3 className="text-2xl font-bold text-slate-900">5. Contact Us</h3>
             <p>
-              If you have any questions about this Privacy Policy, please contact us at info@cwj-u.org.
+              If you have any questions about this Privacy Policy, please contact us at info@CWJU.org.
             </p>
           </section>
         </div>

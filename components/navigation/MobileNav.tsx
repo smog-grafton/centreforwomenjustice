@@ -64,7 +64,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
               <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center">
                 <Image
                   src="/assets/images/meta/centre-for-women-justice.jpg"
-                  alt="Centre for Women Justice Uganda (CWJ-U)"
+                  alt="Centre for Women Justice Uganda (CWJU)"
                   width={140}
                   height={44}
                   className="h-11 w-auto object-contain object-left rounded"

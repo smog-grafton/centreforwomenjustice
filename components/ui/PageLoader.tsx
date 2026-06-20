@@ -37,7 +37,7 @@ export default function PageLoader() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              Center for Women and Justice Uganda
+              Center for Women Justice Uganda
             </motion.span>
             
             <div className="overflow-hidden">
@@ -47,7 +47,7 @@ export default function PageLoader() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
               >
-                CWJ-U
+                CWJU
               </motion.h1>
             </div>
             

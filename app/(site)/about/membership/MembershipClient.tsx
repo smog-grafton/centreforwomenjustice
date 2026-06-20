@@ -21,7 +21,7 @@ export default function MembershipPage({ initialData }: MembershipClientProps) {
   };
 
   const whyJoin = initialData?.why_join ?? {
-    title: 'Why Join CWJ-U?',
+    title: 'Why Join CWJU?',
     body:
       "Membership is more than just support; it's active participation in the fight for justice. As a member, you amplify our voice and extend our reach.",
   };
@@ -419,7 +419,7 @@ export default function MembershipPage({ initialData }: MembershipClientProps) {
                     value={form.reason}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-primary/20 outline-none resize-none transition-shadow"
-                    placeholder="Tell us briefly about your interest in CWJ-U..."
+                    placeholder="Tell us briefly about your interest in CWJU..."
                   />
                 </div>
 

@@ -29,15 +29,15 @@ export const metadata: Metadata = {
     icon: '/assets/images/logo/favicon.ico',
   },
   title: {
-    default: 'Centre for Women Justice Uganda (CWJ-U)',
-    template: '%s | CWJ-U',
+    default: 'Centre for Women Justice Uganda (CWJU)',
+    template: '%s | CWJU',
   },
   description: 'Promoting access to justice for women and girls in Uganda through legal aid, advocacy, and empowerment.',
   openGraph: {
     type: 'website',
     locale: 'en_UG',
     url: 'https://centreforwomenjustice.org',
-    siteName: 'CWJ-U',
+    siteName: 'CWJU',
     images: [
       {
         url: defaultOgImage,

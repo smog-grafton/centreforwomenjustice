@@ -3,7 +3,7 @@ import ResourcesClient from '../ResourcesClient';
 
 export const metadata = {
   title: 'Know Your Rights',
-  description: 'Practical guides and handbooks for understanding your legal rights from CWJ-U.',
+  description: 'Practical guides and handbooks for understanding your legal rights from CWJU.',
 };
 
 export default function KnowYourRightsPage() {

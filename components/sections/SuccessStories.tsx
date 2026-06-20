@@ -96,7 +96,7 @@ export const SuccessStories = () => {
               </h2>
               
               <p className="text-slate-600 text-lg max-w-lg leading-relaxed">
-                At CWJ-U, our proudest achievements are the stories of the lives we&apos;ve touched and the change we&apos;ve inspired. These stories are a testament to the enduring power of determination and our commitment to advancing women&apos;s rights.
+                At CWJU, our proudest achievements are the stories of the lives we&apos;ve touched and the change we&apos;ve inspired. These stories are a testament to the enduring power of determination and our commitment to advancing women&apos;s rights.
               </p>
             </div>
 

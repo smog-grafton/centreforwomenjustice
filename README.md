@@ -1,6 +1,6 @@
-# Centre for Women Justice Uganda (CWJ-U) — Website
+# Centre for Women Justice Uganda (CWJU) — Website
 
-Public website for [Centre for Women Justice Uganda](https://cwj-u.org), built with **Next.js** (App Router) and powered by a **Laravel** backend API.
+Public website for [Centre for Women Justice Uganda](https://CWJU.org), built with **Next.js** (App Router) and powered by a **Laravel** backend API.
 
 ## Stack
 

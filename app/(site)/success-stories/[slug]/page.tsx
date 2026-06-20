@@ -96,12 +96,12 @@ export default async function SuccessStoryDetailPage({ params }: Props) {
                 <p>
                   <strong>{story.tag_line}.</strong>{' '}
                   This story highlights the impact of legal support and community empowerment
-                  provided by CWJ-U.
+                  provided by CWJU.
                 </p>
               )}
               <p>
                 Every success story represents a person, family, or community whose rights have
-                been defended. Through strategic litigation, legal aid, and advocacy, CWJ-U helps
+                been defended. Through strategic litigation, legal aid, and advocacy, CWJU helps
                 transform experiences of injustice into pathways toward dignity and safety.
               </p>
             </div>

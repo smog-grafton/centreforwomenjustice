@@ -7,9 +7,6 @@ import {
   PhoneCall,
   Users,
   UserCheck,
-  FolderKanban,
-  Star,
-  Award,
   FileText,
   Shield,
   MailOpen,
@@ -45,12 +42,7 @@ export const navConfig: NavItem[] = [
         icon: <Users className="w-[18px] h-[18px]" />,
         description: 'Our mission, vision, and core values.',
       },
-      {
-        label: 'Our Team',
-        href: '/about/our-team',
-        icon: <Users className="w-[18px] h-[18px]" />,
-        description: 'Meet the dedicated professionals driving our mission.',
-      },
+
       {
         label: 'Board Members',
         href: '/about/board-members',
@@ -58,29 +50,12 @@ export const navConfig: NavItem[] = [
         description: 'Meet the team guiding our organization.',
       },
       {
-        label: 'Thematic Areas',
-        href: '/about/thematic-areas',
-        icon: <Briefcase className="w-[18px] h-[18px]" />,
-        description: 'Our core focus areas and interventions.',
+        label: 'Our Team',
+        href: '/about/our-team',
+        icon: <Users className="w-[18px] h-[18px]" />,
+        description: 'Meet the dedicated professionals driving our mission.',
       },
-      {
-        label: 'Projects',
-        href: '/about/projects',
-        icon: <FolderKanban className="w-[18px] h-[18px]" />,
-        description: 'Explore our ongoing and past initiatives.',
-      },
-      {
-        label: 'Success Stories',
-        href: '/about/success-stories',
-        icon: <Star className="w-[18px] h-[18px]" />,
-        description: 'Impact stories from the communities we serve.',
-      },
-      {
-        label: 'Membership',
-        href: '/about/membership',
-        icon: <Award className="w-[18px] h-[18px]" />,
-        description: 'Join our network of advocates and supporters.',
-      },
+
     ],
   },
   {

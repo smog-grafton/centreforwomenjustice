@@ -61,7 +61,7 @@ export default async function ThematicAreasPage() {
       <section className="py-20 bg-slate-50">
         <div className="container-custom max-w-4xl text-center">
           <p className="text-2xl md:text-3xl font-serif text-slate-700 leading-relaxed">
-            At CWJ-U, our work is structured around <span className="text-primary font-bold italic">five core pillars</span>.
+            At CWJU, our work is structured around <span className="text-primary font-bold italic">five core pillars</span>.
             Each area is designed to address specific systemic challenges and empower women to claim their rights.
           </p>
         </div>

@@ -30,7 +30,7 @@ export default function VolunteerApplyPage() {
         <div className="mt-16 max-w-3xl mx-auto text-center space-y-4">
           <p className="text-xs text-slate-400 leading-relaxed">
             By applying, you agree to our Privacy Policy regarding the storage and processing of your personal data. 
-            We will only use your information to contact you about volunteer opportunities at CWJ-U.
+            We will only use your information to contact you about volunteer opportunities at CWJU.
           </p>
         </div>
       </div>

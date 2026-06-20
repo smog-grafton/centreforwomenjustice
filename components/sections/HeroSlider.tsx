@@ -160,7 +160,7 @@ export default function HeroSlider() {
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
                 <span className="inline-block bg-secondary text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-                  CWJ-U Impact
+                  CWJU Impact
                 </span>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1]">
                   {slide.title}

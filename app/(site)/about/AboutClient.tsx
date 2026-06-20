@@ -13,7 +13,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="https://picsum.photos/seed/about-hero/1920/1080"
-            alt="About CWJ-U Background"
+            alt="About CWJU Background"
             fill
             className="object-cover opacity-30"
             referrerPolicy="no-referrer"
@@ -22,7 +22,7 @@ export default function AboutPage() {
         </div>
         <div className="container-custom max-w-4xl relative z-10">
           <SectionHeading
-            title="About CWJ-U"
+            title="About CWJU"
             subtitle="Founded in 2010, the Centre for Women Justice Uganda is a non-profit organization dedicated to breaking the cycle of violence and injustice against women."
             centered
             light

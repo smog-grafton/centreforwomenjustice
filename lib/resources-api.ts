@@ -83,7 +83,7 @@ export function toResourceItem(item: ResourceItemApi): {
       : 'publications',
     title: item.title,
     tag: item.tag || '#Resource',
-    author: item.author || 'CWJ-U',
+    author: item.author || 'CWJU',
     coverImage: item.cover_image || '',
     href: item.href || `/resources/${item.slug}`,
     year: item.year ?? undefined,

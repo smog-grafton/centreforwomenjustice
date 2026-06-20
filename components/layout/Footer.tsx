@@ -73,7 +73,7 @@ export default function Footer({ settings }: FooterProps) {
             <Link href="/" className="flex items-center">
               <Image
                 src="/assets/images/logo/logo-for-lite-bg.svg"
-                alt="Centre for Women Justice Uganda (CWJ-U)"
+                alt="Centre for Women Justice Uganda (CWJU)"
                 width={160}
                 height={48}
                 className="h-10 w-auto object-contain object-left"

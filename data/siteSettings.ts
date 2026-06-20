@@ -23,7 +23,7 @@ export const siteSettings: SiteSettings = {
     {
       id: 'ext-1',
       providerName: 'GoFundMe',
-      url: 'https://www.gofundme.com/f/cwju-legal-aid',
+      url: 'https://www.gofundme.com/f/CWJU-legal-aid',
       description: 'Support our emergency legal aid fund via GoFundMe.',
       badgeLabel: 'Popular',
       isFeatured: true
@@ -38,7 +38,7 @@ export const siteSettings: SiteSettings = {
     {
       id: 'ext-3',
       providerName: 'PayPal',
-      url: 'https://paypal.me/cwju',
+      url: 'https://paypal.me/CWJU',
       description: 'Quick and easy donations via PayPal.',
       isFeatured: false
     }
@@ -47,7 +47,7 @@ export const siteSettings: SiteSettings = {
     code: 'USD',
     symbol: '$'
   },
-  receiptFooterText: 'Thank you for your generous support. Your contribution helps us promote justice and equality for women in Uganda. CWJ-U is a registered non-profit organization.',
-  contactEmail: 'donations@cwj-u.org',
+  receiptFooterText: 'Thank you for your generous support. Your contribution helps us promote justice and equality for women in Uganda. CWJU is a registered non-profit organization.',
+  contactEmail: 'donations@CWJU.org',
   supportPhone: '+256 414 123 456'
 };

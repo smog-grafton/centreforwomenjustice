@@ -28,7 +28,7 @@ export default function VolunteerPage({ initialData }: VolunteerClientProps) {
     title: 'Your Skills Can Change Lives.',
     highlight_text: 'Change Lives',
     body:
-      'Whether you are a legal professional, a student, or a passionate advocate, there is a place for you at CWJ-U. Help us bring justice to women and girls in Uganda.',
+      'Whether you are a legal professional, a student, or a passionate advocate, there is a place for you at CWJU. Help us bring justice to women and girls in Uganda.',
     primary_cta_label: 'Apply to Volunteer',
     primary_cta_url: '/volunteer/apply',
     secondary_cta_label: 'View Opportunities',
@@ -40,7 +40,7 @@ export default function VolunteerPage({ initialData }: VolunteerClientProps) {
   const why = initialData?.why ?? {
     title: 'Why Volunteer with Us?',
     subtitle:
-      'Volunteering at CWJ-U is more than just giving your time; it is about building a more just society.',
+      'Volunteering at CWJU is more than just giving your time; it is about building a more just society.',
     image_url: null,
     items: [
       {
@@ -110,7 +110,7 @@ export default function VolunteerPage({ initialData }: VolunteerClientProps) {
             </h1>
             <p className="text-xl text-white/70 max-w-xl leading-relaxed">
               {hero.body ??
-                'Whether you are a legal professional, a student, or a passionate advocate, there is a place for you at CWJ-U. Help us bring justice to women and girls in Uganda.'}
+                'Whether you are a legal professional, a student, or a passionate advocate, there is a place for you at CWJU. Help us bring justice to women and girls in Uganda.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href={hero.primary_cta_url ?? '/volunteer/apply'}>
@@ -167,7 +167,7 @@ export default function VolunteerPage({ initialData }: VolunteerClientProps) {
                 title={why.title ?? 'Why Volunteer with Us?'}
                 subtitle={
                   why.subtitle ??
-                  'Volunteering at CWJ-U is more than just giving your time; it is about building a more just society.'
+                  'Volunteering at CWJU is more than just giving your time; it is about building a more just society.'
                 }
               />
               <div className="space-y-6">
@@ -273,7 +273,7 @@ export default function VolunteerPage({ initialData }: VolunteerClientProps) {
               </>
             ) : (
               <h2 className="text-3xl md:text-5xl font-serif italic leading-tight">
-                &quot;Volunteering with CWJ-U opened my eyes to the power of legal advocacy. Seeing a woman regain her
+                &quot;Volunteering with CWJU opened my eyes to the power of legal advocacy. Seeing a woman regain her
                 dignity and property rights is a feeling I will never forget.&quot;
               </h2>
             )}

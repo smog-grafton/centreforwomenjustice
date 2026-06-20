@@ -52,7 +52,7 @@ export default function Header({ settings }: HeaderProps) {
           <Link href="/" className="flex items-center group outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-lg p-1 -ml-1 transition-opacity hover:opacity-90">
             <Image
               src={isOverlay ? '/assets/images/logo/logo-for-dark-bg.svg' : '/assets/images/logo/logo-for-lite-bg.svg'}
-              alt="Centre for Women Justice Uganda (CWJ-U)"
+              alt="Centre for Women Justice Uganda (CWJU)"
               width={160}
               height={48}
               className="h-10 w-auto object-contain object-left"

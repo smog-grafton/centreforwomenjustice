@@ -107,7 +107,7 @@ export function toNewsCardItem(post: NewsPostApi): {
     title: post.title,
     slug: post.slug,
     date: post.published_on ? new Date(post.published_on).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.') : '',
-    authorLabel: post.author_label || 'CWJ-U Desk',
+    authorLabel: post.author_label || 'CWJU Desk',
     views: post.views,
     coverImage: post.cover_image ?? '',
     excerpt: post.excerpt || '',

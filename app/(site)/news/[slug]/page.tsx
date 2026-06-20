@@ -78,7 +78,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ slug: str
                   <Calendar className="mr-2 h-4 w-4" /> {publishedDate}
                 </span>
                 <span className="flex items-center">
-                  <User className="mr-2 h-4 w-4" /> {post.author_label || 'CWJ-U Communications'}
+                  <User className="mr-2 h-4 w-4" /> {post.author_label || 'CWJU Communications'}
                 </span>
               </div>
             </div>

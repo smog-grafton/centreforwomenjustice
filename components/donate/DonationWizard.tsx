@@ -131,7 +131,7 @@ export function DonationWizard() {
         <div className="relative z-10 space-y-4">
           <div className="flex items-center space-x-3 text-secondary">
             <Heart className="h-6 w-6 fill-current" />
-            <span className="text-sm font-bold uppercase tracking-widest">Support CWJ-U</span>
+            <span className="text-sm font-bold uppercase tracking-widest">Support CWJU</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold">Make a Donation</h2>
           <Stepper steps={STEPS} currentStep={step} className="pt-4" />

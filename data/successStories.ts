@@ -13,7 +13,7 @@ export const successStories: SuccessStory[] = [
   {
     id: '1',
     caseNumber: 'Case: 33724',
-    quote: 'If CWJ-U was not there, I would have lost my land and my children\'s future. They stood by me when everyone else turned away.',
+    quote: 'If CWJU was not there, I would have lost my land and my children\'s future. They stood by me when everyone else turned away.',
     name: 'Anna Okello',
     location: 'Karamoja District',
     tagLine: 'Celebrating Empowered Lives',
@@ -23,7 +23,7 @@ export const successStories: SuccessStory[] = [
   {
     id: '2',
     caseNumber: 'Case: 33743',
-    quote: 'CWJ-U intercepted an attempt to deprive me of my late husband\'s estate. Today, my family lives in peace and security.',
+    quote: 'CWJU intercepted an attempt to deprive me of my late husband\'s estate. Today, my family lives in peace and security.',
     name: 'Jennifer Atieno',
     location: 'Kotido District',
     tagLine: 'Justice Restored',
