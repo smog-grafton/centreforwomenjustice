@@ -5,7 +5,6 @@ export interface ContactSubmissionPayload {
   first_name?: string;
   last_name?: string;
   email: string;
-  subject?: string;
   message: string;
 }
 
@@ -52,4 +51,3 @@ export async function submitContactForm(
     message: data.message ?? 'Thank you for reaching out. We have received your message.',
   };
 }
-

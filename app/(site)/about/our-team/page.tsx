@@ -1,12 +1,91 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { ChevronRight, Linkedin, Twitter, Mail } from 'lucide-react';
+import { ChevronRight, Mail } from 'lucide-react';
 import { fetchTeamMembers, type TeamMemberApi } from '@/lib/team-api';
 import { fetchMembershipPage, type MembershipPageData } from '@/lib/membership-api';
+
+interface TeamHierarchySection {
+  key: string;
+  title: string;
+  description: string | null;
+  sort_order: number;
+  members: TeamMemberApi[];
+}
+
+function buildHierarchy(members: TeamMemberApi[]): TeamHierarchySection[] {
+  const groups = new Map<string, TeamHierarchySection>();
+
+  members.forEach((member) => {
+    const key = member.section?.slug ?? 'team-members';
+
+    if (!groups.has(key)) {
+      groups.set(key, {
+        key,
+        title: member.section?.title ?? 'Team Members',
+        description: member.section?.description ?? null,
+        sort_order: member.section?.sort_order ?? 999,
+        members: [],
+      });
+    }
+
+    groups.get(key)?.members.push(member);
+  });
+
+  return Array.from(groups.values()).sort((a, b) => a.sort_order - b.sort_order);
+}
+
+function TeamMemberCard({ member, featured = false }: { member: TeamMemberApi; featured?: boolean }) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.45 }}
+      className={featured ? 'grid gap-8 lg:grid-cols-[320px_1fr] items-center border-b border-slate-200 pb-10' : 'group'}
+    >
+      <div className={featured ? 'relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-200' : 'relative aspect-[4/5] mb-5 overflow-hidden rounded-2xl bg-slate-200'}>
+        {member.image ? (
+          <Image
+            src={member.image}
+            alt={member.name}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-4xl font-serif font-bold text-slate-400">
+            {member.name.charAt(0)}
+          </div>
+        )}
+      </div>
+
+      <div className={featured ? 'space-y-5' : 'space-y-3'}>
+        <div>
+          <h3 className={featured ? 'text-3xl md:text-4xl font-serif font-bold text-slate-900' : 'text-2xl font-serif font-bold text-slate-900'}>
+            {member.name}
+          </h3>
+          <p className="text-primary font-semibold">{member.role || 'Team Member'}</p>
+        </div>
+        {member.bio && (
+          <p className={featured ? 'text-slate-600 leading-8 max-w-3xl' : 'text-slate-600 leading-relaxed text-sm'}>
+            {member.bio}
+          </p>
+        )}
+        <a
+          href={`mailto:${member.slug}@cwju.org`}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors"
+        >
+          <Mail className="h-4 w-4" />
+          Contact
+        </a>
+      </div>
+    </motion.article>
+  );
+}
 
 export default function OurTeamPage() {
   const [members, setMembers] = useState<TeamMemberApi[]>([]);
@@ -21,9 +100,10 @@ export default function OurTeamPage() {
     fetchMembershipPage().then((data) => setMembership(data));
   }, []);
 
+  const hierarchy = useMemo(() => buildHierarchy(members), [members]);
+
   return (
     <main className="min-h-screen bg-slate-50">
-      {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900">
         <div className="absolute inset-0 bg-slate-900/90" />
         <div className="relative z-10 container-custom text-center text-white mt-16">
@@ -58,77 +138,63 @@ export default function OurTeamPage() {
         </div>
       </section>
 
-      {/* Team Grid Section */}
       <section className="py-24">
         <div className="container-custom">
           {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="space-y-6">
-                  <div className="aspect-[3/4] rounded-2xl bg-slate-200 animate-pulse" />
-                  <div className="h-6 bg-slate-200 rounded w-1/2 mx-auto animate-pulse" />
-                  <div className="h-4 bg-slate-200 rounded w-1/3 mx-auto animate-pulse" />
-                  <div className="h-16 bg-slate-200 rounded animate-pulse" />
+            <div className="space-y-16">
+              {[1, 2, 3].map((section) => (
+                <div key={section} className="space-y-8">
+                  <div className="h-8 bg-slate-200 rounded w-64 animate-pulse" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="space-y-5">
+                        <div className="aspect-[4/5] rounded-2xl bg-slate-200 animate-pulse" />
+                        <div className="h-6 bg-slate-200 rounded w-1/2 animate-pulse" />
+                        <div className="h-4 bg-slate-200 rounded w-1/3 animate-pulse" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
-          ) : members.length === 0 ? (
+          ) : hierarchy.length === 0 ? (
             <p className="text-center text-slate-500 py-12">No team members yet. Add them in the admin under People → Team Members (group: Staff).</p>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {members.map((member, index) => (
-                <motion.div
-                  key={member.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group"
-                >
-                  <div className="relative aspect-[3/4] mb-6 overflow-hidden rounded-2xl bg-slate-200">
-                    {member.image ? (
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-4xl font-serif font-bold text-slate-400">
-                        {member.name.charAt(0)}
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-                      <div className="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <a href="#" className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors" aria-label="LinkedIn">
-                          <Linkedin className="w-5 h-5" />
-                        </a>
-                        <a href="#" className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors" aria-label="Twitter">
-                          <Twitter className="w-5 h-5" />
-                        </a>
-                        <a href={`mailto:${member.slug}@cwju.org`} className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors" aria-label="Email">
-                          <Mail className="w-5 h-5" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-2xl font-serif font-bold text-slate-900 mb-1">{member.name}</h3>
-                    <p className="text-primary font-medium mb-4">{member.role || 'Team Member'}</p>
-                    {member.bio && (
-                      <p className="text-slate-600 leading-relaxed text-sm">
-                        {member.bio}
+            <div className="space-y-20">
+              {hierarchy.map((section, sectionIndex) => {
+                const [lead, ...rest] = section.members;
+
+                return (
+                  <section key={section.key} className="space-y-10">
+                    <div className="max-w-3xl">
+                      <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-3">
+                        {String(sectionIndex + 1).padStart(2, '0')}
                       </p>
+                      <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">
+                        {section.title}
+                      </h2>
+                      {section.description && (
+                        <p className="mt-3 text-slate-600 leading-relaxed">{section.description}</p>
+                      )}
+                    </div>
+
+                    {lead && <TeamMemberCard member={lead} featured={sectionIndex === 0} />}
+
+                    {rest.length > 0 && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        {rest.map((member) => (
+                          <TeamMemberCard key={member.id} member={member} />
+                        ))}
+                      </div>
                     )}
-                  </div>
-                </motion.div>
-              ))}
+                  </section>
+                );
+              })}
             </div>
           )}
         </div>
       </section>
 
-      {/* Join Us CTA */}
       <section className="py-20 bg-white border-t border-slate-100">
         <div className="container-custom max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
